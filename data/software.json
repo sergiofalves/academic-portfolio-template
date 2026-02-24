@@ -1,0 +1,51 @@
+[
+    {
+        "id": "example-software-1",
+        "title": "Example Tool Name",
+        "description": "<b>Example Tool</b> is a brief description of your software project. Explain what it does, its main features, and its impact.\n\nYou can describe the technical details and use <b>bold text</b> for emphasis.",
+        "images": [
+            {
+                "name": "no-image-icon.png",
+                "altText": "Placeholder image for the software."
+            }
+        ],
+        "projects": [
+            "example-project-1"
+        ],
+        "publications": [
+            "example-publication-1"
+        ],
+        "externalLinks": [
+            {
+                "url": "https://github.com/yourhandle/example-tool",
+                "title": "GitHub"
+            }
+        ],
+        "tags": [
+            "Web",
+            "JavaScript",
+            "React"
+        ],
+        "displayInHighlights": true
+    },
+    {
+        "id": "example-software-2",
+        "title": "Another Software Project",
+        "description": "<b>Another Project</b> is a description of a second software project. Explain its purpose and features.",
+        "images": [
+            {
+                "name": "no-image-icon.png",
+                "altText": "Placeholder image for the software."
+            }
+        ],
+        "projects": [],
+        "publications": [],
+        "externalLinks": [],
+        "tags": [
+            "Mobile",
+            "Cross-Platform",
+            "React Native"
+        ],
+        "displayInHighlights": true
+    }
+]

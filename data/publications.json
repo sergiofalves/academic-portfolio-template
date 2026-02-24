@@ -1,0 +1,66 @@
+[
+    {
+        "id": "example-publication-1",
+        "title": "Example Publication Title: A Study on Something Important",
+        "images": [
+            {
+                "name": "no-image-icon.png",
+                "caption": "Paper figure or cover.",
+                "altText": "Placeholder image for the publication."
+            }
+        ],
+        "description": "Write a detailed description or abstract of your publication here. Explain the research question, methodology, key findings, and contributions.\n\nYou can use <b>bold text</b> to highlight important parts.",
+        "authors": [
+            "Your Name",
+            "Co-Author Name 1",
+            "Co-Author Name 2"
+        ],
+        "pdf": "",
+        "externalLinks": [
+            {
+                "title": "DOI",
+                "url": "https://doi.org/example"
+            }
+        ],
+        "venue": "ACM Conference on Human Factors in Computing Systems, April, 2024",
+        "year": 2024,
+        "conferenceName": "CHI",
+        "projects": [
+            "example-project-1"
+        ],
+        "software": [
+            "example-software-1"
+        ],
+        "area": "your-research-area",
+        "tags": "",
+        "displayInHighlights": true
+    },
+    {
+        "id": "example-publication-2",
+        "title": "Another Publication: Exploring a Different Topic",
+        "images": [
+            {
+                "name": "no-image-icon.png",
+                "caption": "Paper figure.",
+                "altText": "Placeholder image for the publication."
+            }
+        ],
+        "description": "Describe a second publication here. Include the abstract or a summary of the work.",
+        "authors": [
+            "Your Name",
+            "Co-Author Name 3"
+        ],
+        "pdf": "",
+        "externalLinks": [],
+        "venue": "International Conference on Example Topic, 2023",
+        "year": 2023,
+        "conferenceName": "ICET",
+        "projects": [
+            "example-project-2"
+        ],
+        "software": [],
+        "area": "another-area",
+        "tags": "",
+        "displayInHighlights": true
+    }
+]

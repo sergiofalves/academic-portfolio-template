@@ -1,0 +1,58 @@
+[
+    {
+        "id": "example-project-1",
+        "title": "Example Research Project",
+        "description": "Describe your research project here. Explain the goals, methodology, and impact of the work.\n\nYou can use multiple paragraphs and <a href='/publications/example-publication-1'>link to related publications</a>.",
+        "images": [
+            {
+                "name": "no-image-icon.png",
+                "altText": "Placeholder image for the project."
+            }
+        ],
+        "startDate": "Jan 2022",
+        "endDate": "Dec 2024",
+        "collaborators": [
+            "Collaborator Name 1",
+            "Collaborator Name 2"
+        ],
+        "institutions": [
+            "University Name"
+        ],
+        "software": [
+            "example-software-1"
+        ],
+        "publications": [
+            "example-publication-1"
+        ],
+        "externalLinks": [],
+        "tags": "",
+        "displayInHighlights": true
+    },
+    {
+        "id": "example-project-2",
+        "title": "Another Research Project",
+        "description": "Provide a detailed description of a second project. Include context, methods, and key findings.\n\nMultiple paragraphs help organize the information clearly.",
+        "images": [
+            {
+                "name": "no-image-icon.png",
+                "altText": "Placeholder image for the project."
+            }
+        ],
+        "startDate": "Mar 2020",
+        "endDate": "Feb 2023",
+        "collaborators": [
+            "Collaborator Name 3",
+            "Collaborator Name 4"
+        ],
+        "institutions": [
+            "Another University"
+        ],
+        "software": [],
+        "publications": [
+            "example-publication-2"
+        ],
+        "externalLinks": [],
+        "tags": "",
+        "displayInHighlights": true
+    }
+]

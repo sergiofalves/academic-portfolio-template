@@ -1,0 +1,34 @@
+{
+    "name": "Your Name",
+    "description": "Your research description — e.g., HCI researcher specializing in accessibility and user interface design.",
+    "website_name": "Your Name",
+    "image": "profilepic.png",
+    "imageAltText": "Profile picture.",
+    "position": [
+        {
+            "role": "Researcher",
+            "institution": "Your Institution"
+        }
+    ],
+    "education": [
+        {
+            "degree": "PhD in Your Field",
+            "year": "2025",
+            "institution": "Your University"
+        }
+    ],
+    "hashtags": [
+        "Research Area 1",
+        "Research Area 2",
+        "Research Area 3"
+    ],
+    "bio": "Write your bio here. You can use <b>HTML tags</b> to highlight important parts of your text. Describe your research interests, background, and what drives your work.",
+    "adress": "Your Department, Your University, Your City, Your Country",
+    "mapsPosition": "Your University, Your City",
+    "email": "your.email@university.edu",
+    "x": "https://x.com/yourhandle",
+    "github": "https://github.com/yourhandle",
+    "linkedin": "https://www.linkedin.com/in/yourhandle/",
+    "scholar": "https://scholar.google.com/citations?user=YOURID",
+    "cv": ""
+}
