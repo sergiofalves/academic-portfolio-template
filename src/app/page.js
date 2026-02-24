@@ -74,7 +74,7 @@ export default function Home() {
 					</Box>
 				</Box>
 
-				{/* Main Content Sections*/}
+				{/* Main Sections*/}
 				<Stack
 					sx={{
 						"& > .MuiBox-root": {
