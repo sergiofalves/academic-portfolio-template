@@ -1,6 +1,6 @@
 # Academic Portfolio Template
 
-A modern, responsive academic portfolio website built with **Next.js**, **Material UI**, and **Framer Motion**. Designed for researchers, academics, and professionals to showcase their projects, publications, and software.
+A modern, responsive academic portfolio website built with **Next.js**, **Material UI**, and **Framer Motion**. Designed for researchers, academics, and professionals to showcase their projects, publications, and software. For an example of how to use this template, check out [my portfolio](https://sergioalves.eu).
 
 ![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
 ![MUI](https://img.shields.io/badge/MUI-6-007FFF?logo=mui)

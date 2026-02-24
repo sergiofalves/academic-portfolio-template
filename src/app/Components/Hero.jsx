@@ -33,7 +33,7 @@ export function Hero() {
 					alignItems: "center",
 					width: "100%",
 					textAlign: { xs: "center", lg: "left" },
-					gap: { xs: 0, lg: 4 }, // Use gap instead of spacing to avoid margin-left
+					gap: { xs: 0, lg: 4 },
 				}}
 			>
 				{/* TEXT CONTENT */}
@@ -52,7 +52,6 @@ export function Hero() {
 								letterSpacing: '-0.02em',
 								background: 'linear-gradient(135deg, #ffffff 0%, rgba(255. 255, 255, 0.8) 100%)',
 								WebkitBackgroundClip: 'text',
-								// Keep text white for now on gradient background
 							}}
 							variant="h2"
 							gutterBottom
@@ -93,9 +92,6 @@ export function Hero() {
 										<Box sx={{
 											display: 'flex',
 											alignItems: 'center',
-											//background: 'rgba(255, 255, 255, 0.2)',
-											//backdropFilter: 'blur(8px)',
-											//borderRadius: '8px',
 											padding: '4px 8px',
 										}}>
 											<WorkRoundedIcon
@@ -133,9 +129,6 @@ export function Hero() {
 										<Box sx={{
 											display: 'flex',
 											alignItems: 'center',
-											// background: 'rgba(255, 255, 255, 0.2)',
-											// backdropFilter: 'blur(8px)',
-											// borderRadius: '8px',
 											padding: '4px 8px',
 										}}>
 											<SchoolRoundedIcon

@@ -1,8 +1,7 @@
 "use client";
 import { useState, useRef, useMemo } from "react";
 import { useParams, notFound } from "next/navigation";
-import { Box, Stack, Container, Typography, Button, Modal, Backdrop, Fade, IconButton } from "@mui/material";
-import CloseIcon from '@mui/icons-material/Close';
+import { Box, Stack, Container, Typography, Button } from "@mui/material";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -10,6 +9,8 @@ import "slick-carousel/slick/slick-theme.css";
 import projectsData from '@/data/projects.json';
 import publicationsData from '@/data/publications.json';
 import softwareData from '@/data/software.json';
+import { ImageModal } from "@/app/Components/ImageModal";
+import { RelatedItems } from "@/app/Components/RelatedItems";
 
 export default function ProjectDetails() {
     const { id } = useParams();
@@ -198,135 +199,21 @@ export default function ProjectDetails() {
                             )}
 
                             {/* Related Software */}
-                            <Box sx={{ marginTop: 2, display: "flex", flexDirection: "column" }}>
-                                {item.software.length > 0 && (
-                                    <>
-                                        <Typography variant="body1" sx={{ display: "block" }}>
-                                            <strong>Related Software:</strong>
-                                        </Typography>
-                                        <Stack direction={{ sm: "column", md: "row" }} spacing={2} sx={{ justifyContent: "flex-start", alignItems: "flex-start" }}>
-                                            {item.software.map((softwareId, index) => {
-                                                const relatedSoftware = software.find(soft => soft.id === softwareId);
-                                                return relatedSoftware ? (
-                                                    <Button
-                                                        key={index}
-                                                        variant="contained"
-                                                        color="primary"
-                                                        href={`/software/${relatedSoftware.id}`}
-                                                        sx={{
-                                                            width: "-webkit-fit-content",
-                                                            marginBottom: 2,
-                                                        }}
-                                                    >
-                                                        {relatedSoftware.title}
-                                                    </Button>
-                                                ) : null;
-                                            })}
-                                        </Stack>
-                                    </>
-                                )}
-                            </Box>
+                            <RelatedItems title="Related Software" itemIds={item.software} fullList={software} basePath="software" />
 
                             {/* Related Publications */}
-                            <Stack sx={{ marginTop: 2 }} direction="column">
-                                {item.publications.length > 0 && (
-                                    <>
-                                        <Typography variant="body1" sx={{ display: "block" }}>
-                                            <strong>Related Publications:</strong>
-                                        </Typography>
-                                        <Stack direction="column" spacing={2} sx={{ justifyContent: "flex-start", alignItems: "flex-start" }}>
-                                            {item.publications.map((publicationId, index) => {
-                                                const relatedPublication = publications.find(pub => pub.id === publicationId);
-                                                return relatedPublication ? (
-                                                    <Button
-                                                        key={index}
-                                                        variant="contained"
-                                                        color="primary"
-                                                        href={`/publications/${relatedPublication.id}`}
-                                                        sx={{
-                                                            width: "-webkit-fit-content",
-                                                            marginBottom: 2,
-                                                        }}
-                                                    >
-                                                        {relatedPublication.title}
-                                                    </Button>
-                                                ) : null;
-                                            })}
-                                        </Stack>
-                                    </>
-                                )}
-                            </Stack>
+                            <RelatedItems title="Related Publications" itemIds={item.publications} fullList={publications} basePath="publications" />
                         </Stack>
                     </Stack>
                 </Stack>
             </Container>
 
-            <Modal
-                aria-labelledby="full-screen-image-modal"
-                aria-describedby="full-screen-image-description"
+            <ImageModal
                 open={openFullScreen}
                 onClose={handleCloseFullScreen}
-                closeAfterTransition
-                slots={{ backdrop: Backdrop }}
-                slotProps={{
-                    backdrop: {
-                        timeout: 500,
-                    },
-                }}
-                sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-            >
-                <Fade in={openFullScreen}>
-                    <Box
-                        sx={{
-                            outline: 'none',
-                            position: 'relative',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            bgcolor: 'transparent',
-                            borderRadius: 2,
-                            width: 'auto',
-                            height: 'auto',
-                            maxWidth: '70vw',
-                            maxHeight: '70vh',
-                        }}
-                    >
-
-                        <IconButton
-                            aria-label="close"
-                            size="large"
-                            autoFocus
-                            onClick={handleCloseFullScreen}
-                            sx={{
-                                position: 'absolute',
-                                top: 8,
-                                right: 8,
-                                color: 'white',
-                                zIndex: 1,
-                                backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                                borderRadius: '50%',
-                                '&:hover': {
-                                    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                                },
-                                boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)',
-                            }}
-                        >
-                            <CloseIcon />
-                        </IconButton>
-
-                        {currentImage && (
-                            <img
-                                src={currentImage}
-                                alt={currentAltText}
-                                style={{
-                                    maxWidth: 'inherit',
-                                    maxHeight: 'inherit'
-                                }}
-                            />
-                        )}
-                    </Box>
-                </Fade>
-            </Modal>
+                imageUrl={currentImage}
+                altText={currentAltText}
+            />
         </Box>
     );
 }

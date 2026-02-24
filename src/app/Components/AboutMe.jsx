@@ -42,18 +42,6 @@ export function AboutMe() {
 									textAlign: "justify",
 									fontSize: { xs: "1rem", md: "1.1rem" },
 									lineHeight: 1.8,
-									color: 'rgba(0, 0, 0, 0.8)',
-									fontFamily: 'inherit',
-									'& a': {
-										color: '#007AFF',
-										textDecoration: 'none',
-										fontWeight: 500,
-										transition: 'color 0.2s ease',
-										'&:hover': {
-											color: '#0056CC',
-											textDecoration: 'underline',
-										},
-									},
 								}}
 								dangerouslySetInnerHTML={{ __html: bio }}
 							/>

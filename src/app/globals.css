@@ -34,8 +34,13 @@ body {
 }
 
 a {
-	color: inherit;
+	color: #007AFF;
 	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+a:hover {
+	color: #0056CC;
 }
 
 /* ========================================

@@ -1,8 +1,7 @@
 "use client";
 import { useState, useRef, useMemo } from "react";
 import { useParams, notFound } from "next/navigation";
-import { Box, Stack, Container, Typography, Button, Modal, Backdrop, Fade, IconButton } from "@mui/material";
-import CloseIcon from '@mui/icons-material/Close';
+import { Box, Stack, Container, Typography, Button } from "@mui/material";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -10,6 +9,8 @@ import "slick-carousel/slick/slick-theme.css";
 import publicationsData from '@/data/publications.json';
 import projectsData from '@/data/projects.json';
 import softwareData from '@/data/software.json';
+import { ImageModal } from "@/app/Components/ImageModal";
+import { RelatedItems } from "@/app/Components/RelatedItems";
 
 export default function Details() {
 	const { id } = useParams();
@@ -191,60 +192,10 @@ export default function Details() {
 							</Stack>
 
 							{/* Display related projects */}
-							{item.projects && item.projects.length > 0 && (
-								<Stack sx={{ marginTop: 2 }} direction="column">
-									<Typography variant="body1">
-										<strong>Related Projects:</strong>
-									</Typography>
-									<Stack direction={{ sm: "column", md: "row" }} spacing={2} sx={{ justifyContent: "flex-start", alignItems: "flex-start" }}>
-										{item.projects.map((projectId, index) => {
-											const project = projects.find(prj => prj.id === projectId);
-											return project ? (
-												<Button
-													key={index}
-													variant="contained"
-													color="primary"
-													href={`/projects/${project.id}`}
-													sx={{
-														width: "-webkit-fit-content",
-														marginBottom: 2,
-													}}
-												>
-													{project.title}
-												</Button>
-											) : null;
-										})}
-									</Stack>
-								</Stack>
-							)}
+							<RelatedItems title="Related Projects" itemIds={item.projects} fullList={projects} basePath="projects" />
 
 							{/* Display related software */}
-							{item.software && item.software.length > 0 && (
-								<Stack sx={{ marginTop: 2 }} direction="column">
-									<Typography variant="body1">
-										<strong>Related Software:</strong>
-									</Typography>
-									<Stack direction={{ sm: "column", md: "row" }} spacing={2} sx={{ justifyContent: "flex-start", alignItems: "flex-start" }}>
-										{item.software.map((softwareId, index) => {
-											const softwareItem = software.find(soft => soft.id === softwareId);
-											return softwareItem ? (
-												<Button
-													key={index}
-													variant="contained"
-													color="primary"
-													href={`/software/${softwareItem.id}`}
-													sx={{
-														width: "-webkit-fit-content",
-														marginBottom: 2,
-													}}
-												>
-													{softwareItem.title}
-												</Button>
-											) : null;
-										})}
-									</Stack>
-								</Stack>
-							)}
+							<RelatedItems title="Related Software" itemIds={item.software} fullList={software} basePath="software" />
 						</Stack>
 					</Stack>
 				</Stack>

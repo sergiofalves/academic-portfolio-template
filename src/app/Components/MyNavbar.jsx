@@ -23,15 +23,6 @@ import { usePathname } from 'next/navigation';
 
 import aboutmeData from '@/data/aboutme.json';
 
-// Gradient colors matching hero - each section gets a color from the gradient
-const sectionColors = {
-	aboutme: 'rgba(113,124,9,0.9)',    // Olive-green (start of gradient)
-	projects: 'rgba(144,129,19,0.9)',  // Olive-golden blend
-	publications: 'rgba(175,134,29,0.9)', // Golden/mustard (middle)
-	software: 'rgba(118,171,133,0.9)', // Golden-cyan blend
-	contact: 'rgba(62,209,238,0.9)',   // Cyan (end of gradient)
-};
-
 const skipLinkStyle = {
 	position: 'absolute',
 	top: -100,
@@ -101,9 +92,9 @@ export function MyNavbar() {
 		setAnchorElNav(null);
 	};
 
-	// Get color for a section
+	// Get color for a section from theme
 	const getSectionColor = (sectionId) => {
-		return sectionColors[sectionId] || theme.palette.primary.main;
+		return theme.palette.sectionColors?.[sectionId] || theme.palette.primary.main;
 	};
 
 	// Social icon styles

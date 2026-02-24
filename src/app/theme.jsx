@@ -4,7 +4,7 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
 	cssVariables: true,
 	typography: {
-		fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif',
+		fontFamily: 'var(--font-geist-sans), sans-serif',
 		h1: {
 			fontWeight: 700,
 			letterSpacing: '-0.02em',
@@ -32,54 +32,23 @@ const theme = createTheme({
 		borderRadius: 16,
 	},
 	palette: {
-		mode: 'light',
 		primary: {
 			main: '#007AFF', // Apple Blue
-			light: '#5AC8FA',
-			dark: '#0056CC',
-			contrastText: '#FFFFFF',
 		},
-		secondary: {
-			main: '#00C7BE', // Teal
-			light: '#48DBFB',
-			dark: '#00A99D',
-			contrastText: '#FFFFFF',
-		},
-		accent: {
-			pink: '#FF6B8A',
-			cyan: '#5AC8FA',
-			teal: '#00C7BE',
-			green: '#30D158',
-			orange: '#FF9F0A',
-		},
-		menubutton: {
-			main: 'rgba(60, 60, 67, 0.87)',
-		},
-		warning: {
-			main: '#FF9F0A',
-		},
-		error: {
-			main: '#FF3B30',
-		},
-		success: {
-			main: '#30D158',
+		sectionColors: {
+			aboutme: 'rgba(113,124,9,0.9)',    // Olive-green (start of gradient)
+			projects: 'rgba(144,129,19,0.9)',  // Olive-golden blend
+			publications: 'rgba(175,134,29,0.9)', // Golden/mustard (middle)
+			software: 'rgba(118,171,133,0.9)', // Golden-cyan blend
+			contact: 'rgba(62,209,238,0.9)',   // Cyan (end of gradient)
 		},
 		text: {
 			primary: 'rgba(0, 0, 0, 0.87)',
 			secondary: 'rgba(60, 60, 67, 0.6)',
-			white: '#FFFFFF',
-			grey: '#8E8E93',
 		},
 		background: {
 			default: '#ffffff',
 			paper: '#ffffff',
-			grey: '#f8f9fa',
-		},
-		// Gradient colors
-		gradient: {
-			color1: '#4facfe',
-			color2: '#a8edea',
-			color3: '#00f2fe',
 		},
 		// Link colors
 		link: {
@@ -98,6 +67,22 @@ const theme = createTheme({
 					borderBottom: '1px solid rgba(0, 0, 0, 0.06)',
 					boxShadow: 'none',
 					color: 'rgba(0, 0, 0, 0.87)',
+				},
+			},
+		},
+		MuiLink: {
+			styleOverrides: {
+				root: {
+					color: '#007AFF',
+					textDecoration: 'none',
+					fontWeight: 500,
+					transition: 'color 0.2s ease',
+					'&:hover': {
+						color: '#0056CC',
+					},
+					'&:visited': {
+						color: '#00A99D',
+					},
 				},
 			},
 		},

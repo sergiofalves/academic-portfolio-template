@@ -20,10 +20,11 @@ export default function ContentPage() {
 		const getInfo = async () => {
 			const filedata = await fetch("json?filename=" + listtype);
 			const json = await filedata.json();
-			const processedItems = json.map(item => ({
-				...item,
-				description: item.description.replace(/<[^>]*>/g, '')
-			}));
+			const processedItems = json
+				.map(item => ({
+					...item,
+					description: item.description ? item.description.replace(/<[^>]*>/g, '') : ''
+				}));
 			setItems(processedItems);
 			window.dispatchEvent(new CustomEvent("sectionChange", { detail: menuItems[validlisttypes.indexOf(listtype)] }));
 		}

@@ -1,8 +1,7 @@
 "use client";
 import { useState, useRef, useMemo } from "react";
 import { useParams, notFound } from "next/navigation";
-import { Box, Stack, Container, Typography, Button, Modal, Backdrop, Fade, IconButton } from "@mui/material";
-import CloseIcon from '@mui/icons-material/Close';
+import { Box, Stack, Container, Typography, Button } from "@mui/material";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -10,6 +9,8 @@ import "slick-carousel/slick/slick-theme.css";
 import softwareData from '@/data/software.json';
 import publicationsData from '@/data/publications.json';
 import projectsData from '@/data/projects.json';
+import { ImageModal } from "@/app/Components/ImageModal";
+import { RelatedItems } from "@/app/Components/RelatedItems";
 
 export default function SoftwareDetails() {
 	const { id } = useParams();
@@ -172,131 +173,17 @@ export default function SoftwareDetails() {
 								)}
 							</Stack>
 
-							<Stack sx={{ marginTop: 2 }} direction="column">
-								{item.projects.length > 0 && (
-									<>
-										<Typography variant="body1" sx={{ display: "block" }}>
-											<strong>Related Projects:</strong>
-										</Typography>
-										<Box sx={{ display: "flex", flexDirection: "collumn", gap: 1 }}>
-											{item.projects.map((projectId, index) => {
-												const project = projects.find(prj => prj.id === projectId);
-												return project ? (
-													<Button
-														key={index}
-														variant="contained"
-														color="primary"
-														href={`/projects/${project.id}`}
-														sx={{
-															width: "-webkit-fit-content",
-															marginBottom: 2,
-														}}
-													>
-														{project.title}
-													</Button>
-												) : null;
-											})}
-										</Box>
-									</>
-								)}
-							</Stack>
-							<Stack direction="column">
-								{item.publications.length > 0 && (
-									<>
-										<Typography variant="body1" sx={{ display: "block" }}>
-											<strong>Related Publications:</strong>
-										</Typography>
-										<Stack direction="column" spacing={2} sx={{ justifyContent: "flex-start", alignItems: "flex-start" }}>
-											{item.publications.map((publicationId, index) => {
-												const publication = publications.find(pub => pub.id === publicationId);
-												return publication ? (
-													<Button
-														key={index}
-														variant="contained"
-														color="primary"
-														href={`/publications/${publication.id}`}
-														sx={{
-															width: "-webkit-fit-content",
-															marginBottom: 2,
-														}}
-													>
-														{publication.title}
-													</Button>
-												) : null;
-											})}
-										</Stack>
-									</>
-								)}
-							</Stack>
+							<RelatedItems title="Related Projects" itemIds={item.projects} fullList={projects} basePath="projects" />
+							<RelatedItems title="Related Publications" itemIds={item.publications} fullList={publications} basePath="publications" />
 						</Stack>
 					</Stack>
 				</Stack>
-				<Modal
-					aria-labelledby="full-screen-image-modal"
-					aria-describedby="full-screen-image-description"
+				<ImageModal
 					open={openFullScreen}
 					onClose={handleCloseFullScreen}
-					closeAfterTransition
-					slots={{ backdrop: Backdrop }}
-					slotProps={{
-						backdrop: {
-							timeout: 500,
-						},
-					}}
-					sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-				>
-					<Fade in={openFullScreen}>
-						<Box
-							sx={{
-								outline: 'none',
-								position: 'relative',
-								display: 'flex',
-								alignItems: 'center',
-								justifyContent: 'center',
-								bgcolor: 'transparent',
-								borderRadius: 2,
-								width: 'auto',
-								height: 'auto',
-								maxWidth: '70vw',
-								maxHeight: '70vh',
-							}}
-						>
-
-							<IconButton
-								aria-label="close"
-								size="large"
-								autoFocus
-								onClick={handleCloseFullScreen}
-								sx={{
-									position: 'absolute',
-									top: 8,
-									right: 8,
-									color: 'white',
-									zIndex: 1,
-									backgroundColor: 'rgba(0, 0, 0, 0.5)',
-									borderRadius: '50%',
-									'&:hover': {
-										backgroundColor: 'rgba(0, 0, 0, 0.7)',
-									},
-									boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)',
-								}}
-							>
-								<CloseIcon />
-							</IconButton>
-
-							{currentImage && (
-								<img
-									src={currentImage}
-									alt={currentAltText}
-									style={{
-										maxWidth: 'inherit',
-										maxHeight: 'inherit'
-									}}
-								/>
-							)}
-						</Box>
-					</Fade>
-				</Modal>
+					imageUrl={currentImage}
+					altText={currentAltText}
+				/>
 			</Container>
 		</Box>
 	);
