@@ -69,7 +69,7 @@ export default function Home() {
 						py: 2,
 					}}
 				>
-					<Box sx={{ position: 'relative', zIndex: 1, width: '100%' }}>
+					<Box className="mySections" sx={{ position: 'relative', zIndex: 1, width: '100%', mt: '0px !important' }}>
 						<Hero />
 					</Box>
 				</Box>

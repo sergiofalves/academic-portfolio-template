@@ -20,7 +20,6 @@ export function Hero() {
 		<Container maxWidth="lg" sx={{
 			pb: { xs: "10px", lg: "20px" },
 			pt: { xs: "20px", lg: "20px" },
-			pr: { xs: "20px", lg: "0px" },
 			display: "flex",
 			justifyContent: "flex-end",
 			alignItems: "center"
@@ -195,6 +194,7 @@ export function Hero() {
 						sx={{
 							display: { lg: "block", xs: "none" },
 							position: 'relative',
+							mr: '-12px',
 						}}
 					>
 						{/* Glow effect behind image */}
