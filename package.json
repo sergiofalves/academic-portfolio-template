@@ -16,7 +16,7 @@
     "@next/third-parties": "^16.1.6",
     "framer-motion": "^12.4.1",
     "gsap": "^3.12.7",
-    "next": "^16.1.6",
+    "next": "^16.2.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-slick": "^0.30.3",
